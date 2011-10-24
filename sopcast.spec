@@ -1,6 +1,6 @@
-Name:           sopcast       
+Name:           sopcast
 Version:        3.2.6
-Release:        5.R
+Release:        6.R
 Summary:        A P2P Stream program
 
 License:        Redistributable
@@ -8,15 +8,23 @@ URL:            http://www.sopcast.org
 Group:          Applications/Internet
 Source0:        http://download.easetuner.com/download/sp-auth.tgz
 Source1:        sopcast
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-#Requires:       mplayer      
+#Requires:       mplayer
+AutoReqProv:    no
+Requires:       /bin/sh
+Requires:       ld-linux.so.2
+Requires:       libc.so.6
+Requires:       libgcc_s.so.1
+Requires:       libm.so.6
+Requires:       libpthread.so.0
+Requires:       libstdc++.so.5
 
-BuildArch:	i686
+BuildArch:      i686
 
 
 %description
-A P2P Stream program and playing script    
+A P2P Stream program and playing script
 
 
 %prep
@@ -45,6 +53,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Mon Oct 24 2011 Vasiliy N. Glazov <vascom2@gmail.com> 3.2.6-6.R
+- Removed auto requires, added it manual
+
 * Tue Aug 03 2011 Vasiliy N. Glazov <vascom2@gmail.com> 3.2.6-5.R
 - Removed mplayer requires
 
